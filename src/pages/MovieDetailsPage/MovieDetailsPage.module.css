@@ -1,0 +1,12 @@
+.detailContainer {
+  display: flex;
+  gap: 20px;
+}
+.infoContainer {
+}
+.image {
+  width: 300px;
+}
+ul {
+  list-style: none;
+}

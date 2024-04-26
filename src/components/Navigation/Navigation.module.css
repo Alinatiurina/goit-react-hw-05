@@ -1,0 +1,15 @@
+.navList {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.link {
+  list-style: none;
+  justify-content: center;
+}
+.active {
+  color: brown;
+  list-style: none;
+  justify-content: center;
+}
