@@ -1,0 +1,23 @@
+.container {
+  margin-top: 65px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.input {
+  width: 400px;
+  height: 30px;
+  border-radius: 5px;
+}
+.input:hover {
+  border-color: brown;
+}
+.button {
+  border: 1px solid #a09f9f;
+  padding: 5px 15px;
+}
+.button:hover {
+  border: 1px solid brown;
+}

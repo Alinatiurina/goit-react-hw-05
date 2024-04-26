@@ -31,6 +31,10 @@ export const getMovieCastById = async (moviesId) => {
 export const getMovieReviewById = async (moviesId) => {
   const urlById = `https://api.themoviedb.org/3/movie/${moviesId}/reviews?language=en-US&page=1`;
     const response = await axios.get(urlById, options);
-    return response.data.results
-;
+    return response.data.results;
+}
+  export const getMovieByQwery = async (query) => {
+  const urlByQwery = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+    const response = await axios.get(urlByQwery, options);
+    return response.data;
   }

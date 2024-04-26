@@ -11,7 +11,7 @@ const classLink = ({isActive})=>{return isActive? css.active: css.link}
 
 export default function Navigation() { 
     return (   
-        <nav>
+        <nav className={css.navContainer}>
             <ul className={css.navList}>
                 <li><NavLink to="/" className={classLink}>
                     Home

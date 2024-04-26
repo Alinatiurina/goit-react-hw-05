@@ -12,14 +12,13 @@ export default function MovieDetailsPage() {
             try {
                 const data = await getMovieById(moviesId);
                 setMovie(data);
-                console.log(data)
             } catch (error) { }
         }
         fetchMovie();
     }, [moviesId]);
     
     return (
-        <div>
+        <div className={css.container}>
             {movie && (
                 <div className={css.detailContainer}>
                     <img className={css.image} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
@@ -29,7 +28,7 @@ export default function MovieDetailsPage() {
                         <h3>Owerview</h3>
                         <p>{movie.overview}</p>
                         <h3>Geners</h3>
-                        <ul>
+                        <ul className={css.genresList}>
                             {movie.genres.map(genre => (
                                 <li key={genre.id}>{genre.name}</li>
                             ))}
@@ -37,13 +36,14 @@ export default function MovieDetailsPage() {
                     </div>
                 </div>
             )}
-
-            <p>Additional information</p>
-            <ul>
-                <li><NavLink to='cast'>Cast</NavLink></li>
-                <li><NavLink to='revievs'>Revievs</NavLink></li>
-            </ul>
-            <Outlet/>
+            <div className={css.add}>
+                <h3 className={css.addText}>Additional information</h3>
+                <ul className={css.addList}>
+                    <li className={css.addItem}><NavLink to='cast'>Cast</NavLink></li>
+                    <li className={css.addItem}><NavLink to='revievs'>Revievs</NavLink></li>
+                </ul>
+            </div>
+            <Outlet />
         </div>);
     
 }
