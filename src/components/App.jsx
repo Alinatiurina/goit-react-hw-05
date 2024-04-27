@@ -1,17 +1,17 @@
-import { GetMovies } from "../../movies-api";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
-import HomePage from "../pages/HomePage/HomePage";
-import NotFound from "../pages/NotFoundPage/NotFoundPage";
-import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
-import MoviesPage from "../pages/MoviesPage/MoviesPage";
-import MovieCast from "./MovieCast/MovieCast";
-import MovieReviews from "./MovieReviews/MovieReviews";
+
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const NotFound = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
+const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage/MovieDetailsPage"));
+const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage"));
+const MovieCast = lazy(() => import("./MovieCast/MovieCast"));
+const MovieReviews = lazy(() => import("./MovieReviews/MovieReviews"));
 
 export default function App() {
     return (
     <Layout>
-
         <Routes>
             <Route path="/" element={<HomePage/>} /> 
             <Route path="/movies" element={<MoviesPage/>} />
@@ -20,8 +20,7 @@ export default function App() {
                 <Route path="revievs" element={<MovieReviews/>} />
             </Route>
             <Route path="*" element={ <NotFound/>} />   
-        </Routes>
-        
+        </Routes>       
     </Layout>
     )
 }

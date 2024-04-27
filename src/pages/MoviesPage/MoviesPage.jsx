@@ -1,15 +1,21 @@
 import { Field, Form, Formik } from "formik";
 import css from './MoviesPage.module.css';
-import { getMovieByQwery } from "../../../movies-api";
+import MovieList from "../../components/MovieList/MovieList";
+import { useState } from "react";
 
 export default function MoviesPage() {
+    const [query, setQuery] = useState(""); 
+
+    const handleSearch = (query) => {
+        setQuery(query);
+    };
+
     return (
         <div className={css.container}>
             <Formik
                 initialValues={{ query: "" }}
                 onSubmit={(values, actions) => {
-                    // if (values.query === "") { notify() }
-                    onSearch(values.query);
+                    handleSearch(values.query);
                     actions.resetForm();
                 }}
             >
@@ -20,8 +26,9 @@ export default function MoviesPage() {
                         placeholder="Search movies"
                     />
                     <button type="submit" className={css.button}>Search</button>
-                    {/* <Toaster position="top-right" reverseOrder={false} /> */}
                 </Form>
-            </Formik>  </div>
+            </Formik>
+            {query && <MovieList moviesQuery={query} />}
+        </div>
     );
 }

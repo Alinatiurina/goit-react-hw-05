@@ -8,12 +8,8 @@ const options = {
 };
 
 export const GetMovies = async () => {
-  try {
     const response = await axios.get(url, options);
     return response.data.results;
-  } catch (error) {
-    throw error;
-  }
 }
 
 export const getMovieById = async (moviesId) => {
@@ -33,8 +29,8 @@ export const getMovieReviewById = async (moviesId) => {
     const response = await axios.get(urlById, options);
     return response.data.results;
 }
-  export const getMovieByQwery = async (query) => {
-  const urlByQwery = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+export const getMovieByQwery = async (searchQuery, currentPage) => {
+  const urlByQwery = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${currentPage}`;
     const response = await axios.get(urlByQwery, options);
-    return response.data;
-  }
+    return response.data.results;
+}
