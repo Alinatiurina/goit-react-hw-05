@@ -2,12 +2,15 @@ import { Field, Form, Formik } from "formik";
 import css from './MoviesPage.module.css';
 import MovieList from "../../components/MovieList/MovieList";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
     const [query, setQuery] = useState(""); 
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const handleSearch = (query) => {
         setQuery(query);
+        setSearchParams({ query: query });
     };
 
     return (
