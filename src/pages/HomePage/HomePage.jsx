@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { GetMovies } from "../../../movies-api";
 
 export default function HomePage() {
-     const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -25,10 +25,12 @@ export default function HomePage() {
   }, []);
 
 
-    return (
-        <div className={css.container}>
-            <h1>Trending today</h1>
-            <MovieList movies={movies} />
-        </div>
-    );
+  return (
+    <div className={css.container}>
+      <h1>Trending today</h1>
+      {loading && <b>Loading...</b>}
+      {error && <b>Error fetching data</b>}
+      <MovieList movies={movies} />
+    </div>
+  );
 }

@@ -8,7 +8,7 @@ import { getMovieByQwery} from "../../../movies-api";
 
 export default function MoviesPage() {
 
-   const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const notify = () => toast.error('Please, enter your request!');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -23,7 +23,6 @@ export default function MoviesPage() {
     useEffect(() => {   
         async function fetchMovies() {
             const params = searchParams.get("query");
-            console.log(params);
         try {
             setError(false);
             setLoading(true);
@@ -57,9 +56,11 @@ export default function MoviesPage() {
                         placeholder="Search movies"
                     />
                     <button type="submit" className={css.button}>Search</button>
-                <Toaster position="top-right" reverseOrder={false} />
+                    <Toaster position="top-right" reverseOrder={false} />
                 </Form>
             </Formik>
+            {loading && <b>Loading...</b>}
+            {error && <b>Error fetching data</b>}
             {query && <MovieList movies={movies} />}
         </div>
     );
