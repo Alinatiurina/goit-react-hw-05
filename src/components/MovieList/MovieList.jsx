@@ -1,45 +1,18 @@
-import { useEffect, useState } from "react";
-import { getMovieByQwery, GetMovies } from "../../../movies-api";
+import {  useState } from "react";
 import css from "./MovieList.module.css";
 import { Link, useLocation } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
-import { useSearchParams } from "react-router-dom";
 
-export default function MovieList({ moviesQuery }) {
-  const [movies, setMovies] = useState([]);
+
+export default function MovieList({ movies }) {
+ 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg'
   const location = useLocation();
   const notify = () => toast.error('Sorry, there are no movies matching your search query. Please try again!');
   
-
-  useEffect(() => {
-    async function fetchMovies() {
-      try {
-        setError(false);
-        setLoading(true);
-        let data;       
-        if (moviesQuery) {
-          data = await getMovieByQwery(moviesQuery, 1);
-          if (data.length === 0) {
-            notify()
-          }
-        }       
-        else {
-          data = await GetMovies();
-        }
-        setMovies(data);
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchMovies();
-  }, [moviesQuery]);
-
-
+  
   return (
     <div>
       {loading && <b>Loading...</b>}
