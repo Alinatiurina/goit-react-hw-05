@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <header className={css.header}>
         <Navigation />
       </header>
-        <Suspense fallback={<div>Page is loading...</div>}>
+      <Suspense fallback={<div>Page is loading...</div>}>
         {children}
       </Suspense>
     </div>

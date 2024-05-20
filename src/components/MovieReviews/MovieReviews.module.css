@@ -1,17 +1,20 @@
+.container {
+  padding: 20px;
+  background-color: #121212; /* Темний фон */
+  color: #ffffff; /* Білий текст */
+}
+
 .review {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
   padding: 10px;
-  margin-bottom: 10px;
+  background-color: #1e1e1e; /* Темний фон для відгуків */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Тінь */
 }
 
 .author {
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.1em;
-}
-.container {
-  background-color: #f8f8f8;
-  margin: 0;
-  padding: 10px;
+  color: #f5a623; /* Акцентний колір */
+  margin-bottom: 5px;
 }
