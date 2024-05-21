@@ -34,7 +34,7 @@ export default function MovieDetailsPage() {
                             <p>User Score: {movie.vote_average}%</p>
                             <h3>Owerview</h3>
                             <p>{movie.overview}</p>
-                            <h3>Geners</h3>
+                            <h3>Genres</h3>
                             <ul className={css.genresList}>
                                 {movie.genres.map(genre => (
                                     <li key={genre.id}>{genre.name}</li>
